@@ -243,6 +243,7 @@ export default class SimplePollWebPart extends BaseClientSideWebPart<ISimplePoll
                                     placeholder: strings.NoPollMsgPlaceholder,
                                     value: this.properties.NoPollMsg
                                 }),
+                                /** 
                                 PropertyFieldChoiceGroupWithCallout('chartType', {
                                     calloutContent: React.createElement('div', {}, strings.ChartFieldCalloutText),
                                     calloutTrigger: CalloutTriggers.Hover,
@@ -276,6 +277,7 @@ export default class SimplePollWebPart extends BaseClientSideWebPart<ISimplePoll
                                             iconProps: { officeFabricIconFontName: 'LineChart' }
                                         }]
                                 })
+                                **/
                             ]
                         }
                     ]

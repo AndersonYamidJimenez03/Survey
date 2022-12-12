@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import ChartBar from './ChartBar';
-import './Chart.module.scss';
+import styles from './Chart.module.scss';
 
 const Chart = (props) => {
 //   const dataPointValues = props.dataPoints.map(dataPoint => dataPoint.value);
@@ -9,13 +9,13 @@ const Chart = (props) => {
 
    
   return (
-    <div className='chart'>
-      <div className='chartInner3'>
+    <div className={styles.chart}>
+      <div className={styles.chartInner}>
       {props.data.datasets.map((dataPoint) => (
         <ChartBar
           key={dataPoint.label}
-          value={dataPoint.data}
-          maxValue={10}
+          value={dataPoint.value}
+          responses={props.data.totalResponses}
           label={dataPoint.label}
         />
       ))}

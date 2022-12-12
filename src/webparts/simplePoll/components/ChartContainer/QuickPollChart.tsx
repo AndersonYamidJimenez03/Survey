@@ -2,6 +2,7 @@ import * as React from 'react';
 import { ChartControl, ChartType } from '@pnp/spfx-controls-react/lib/ChartControl';
 import { IPollAnalyticsInfo } from '../../../../Models';
 import Chart from './Chart';
+import Data from './Data';
 
 export interface IQuickPollChartProps {
   PollAnalytics: IPollAnalyticsInfo;
@@ -37,35 +38,17 @@ export default class QuickPollChart extends React.Component<IQuickPollChartProps
 
     if (undefined !== this.props.PollAnalytics) {
       this.getChartType();
-     
-      return (
-        /** 
-        this.charttype == ChartType.Line ? (
-          <ChartControl
-            loadingtemplate={() => <div>Please wait...</div>}
-            type={this.charttype}
-            data={{
-              labels: PollAnalytics.Labels,
-              datasets: [{
-                label: 'Results',
-                data: PollAnalytics.PollResponse,
-                fill: false,
-                borderColor: "rgb(77, 139, 240)"
-              }]
-            }} />
-        ) : (**/
+      return (        
             <Chart
               loadingtemplate={() => <div>Please wait...</div>}
               type={this.charttype}
               data={{
                 labels: PollAnalytics.Labels,
-                datasets: [{
-                  label: PollAnalytics.Labels,
-                  data: PollAnalytics.PollResponse,
-                  fill: false,
-                borderColor: "rgb(77, 139, 240)"
-                }]
+                datasets: 
+               this.getData(PollAnalytics.Labels,PollAnalytics.PollResponse),
+                totalResponses: this.getTotalResponses(PollAnalytics.PollResponse)            
               }} />
+  
           );
     }
   }
@@ -92,4 +75,26 @@ export default class QuickPollChart extends React.Component<IQuickPollChartProps
         break;
     }
   }
+
+  private getData = (arr1:string[], arr2:number[])=>{
+    let arr: Data[] = [];
+    let obj:Data;
+    for(let i=0; i < arr2.length; i++){
+          obj = {
+          label: arr1[i],
+          value: arr2[i]
+        };
+        arr.push(obj);
+    }
+    return arr;
+  }
+
+  private getTotalResponses = (arr2:number[])=>{
+    let sum:number =0;
+    arr2.map((ele)=>{
+      sum +=ele;
+    });
+    return sum;
+  }
+
 }

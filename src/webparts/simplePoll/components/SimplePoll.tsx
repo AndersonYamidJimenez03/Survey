@@ -334,7 +334,7 @@ export default class SimplePoll extends React.Component<ISimplePollProps, ISimpl
                 <div className="ms-Grid" dir="ltr">
                   <div className="ms-Grid-row">
                     <div className="ms-Grid-col ms-lg12 ms-md12 ms-sm12">
-                      <div className="ms-textAlignLeft ms-font-m-plus ms-fontWeight-semibold">
+                      <div className={styles.question}>
                         {displayQuestion.DisplayName}
                       </div>
                     </div>
@@ -353,7 +353,7 @@ export default class SimplePoll extends React.Component<ISimplePollProps, ISimpl
                   </div>
                   <div className="ms-Grid-row">
                     <div className="ms-Grid-col ms-lg12 ms-md12 ms-sm12">
-                      <div className="ms-textAlignCenter ms-font-m-plus ms-fontWeight-semibold">
+                      <div className="ms-textAlignLeft ms-font-m-plus ms-fontWeight-semibold">
                         <PrimaryButton disabled={!enableSubmit} text={submitButtonText}
                           onClick={this._submitVote.bind(this)} />
                       </div>

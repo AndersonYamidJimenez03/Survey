@@ -8,3 +8,14 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   }
 }
+
+
+.question{
+  padding: 1rem;
+  border-radius: 12px;
+  background-color:#f5f7fc;
+  text-align: center;
+  //display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+}

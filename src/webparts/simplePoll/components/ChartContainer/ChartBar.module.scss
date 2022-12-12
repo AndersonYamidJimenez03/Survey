@@ -3,28 +3,31 @@
     display: flex;
     flex-direction: column;
 
-    
+    .chartBarLabel {
+      font-size: 0.8rem;
+      text-align: left;
+      margin: 5px 5px;
+    }
+    .chartBarInner {
+      //height: 100%;
+      width: 90%;
+      //background-color: #c3b4f3;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      .percentage{
+        padding-left: 10px;
+        font-weight: 500;
+      }
+      .chartBarFill {
+        //border: 1px solid #313131;
+        border-radius: 12px;
+        background-color: #4b009b;
+        height: 100%;
+        transition: all 0.3s ease-out;
+      }
+    }
   }
   
-  .chartBarInner {
-    height: 100%;
-    width: 100%;
-    border: 1px solid #313131;
-    border-radius: 12px;
-    background-color: #c3b4f3;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-  
-  .chartBarFill {
-    background-color: #4826b9;
-    height: 100%;
-    transition: all 0.3s ease-out;
-  }
-  
-  .chartBarLabel {
-    font-size: 0.7rem;
-    text-align: left;
-  }
+ 
